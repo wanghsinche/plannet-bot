@@ -2,10 +2,11 @@ const axios = require('axios')
 const fs = require('fs')
 const path = require('path')
 const { postURL } = require('./constant')
-const cookie = fs.readFileSync(path.resolve(process.cwd(), 'cookie.txt'))
 
 
 async function postMsg(text, notify){
+    const cookie = fs.readFileSync(path.resolve(process.cwd(), 'cookie.txt'))
+
     const res = await axios.post(postURL, {
         "req_data": {
             "type": "topic",
